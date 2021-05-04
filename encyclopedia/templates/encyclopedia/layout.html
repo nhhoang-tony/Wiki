@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <!-- https://favicon.io/emoji-favicons/open-book -->
+        <link href="{% static 'encyclopedia/favicon.ico' %}" rel="icon">
+    </head>
+    <body>
+        <div class="row">
+            <div class="sidebar">
+                <h2 class="header">
+                    <a href="{% url 'index' %}">Wiki</a></h2>
+
+                <!--form submits to index page to search for pages with user's query-->
+                <form action="{% url 'search' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input width="300px" class="search" type="text" name="q" placeholder="Search Wiki">
+                    </div>
+                    <input type="submit" class="btn btn-primary" style="margin-bottom: 10%;" value="Search">
+                </form>
+                <div class="menu">
+                    <a href="{% url 'index' %}">Home</a>
+                </div>
+                <div class="menu"><a href="{%url 'random' %}">
+                    Random Page
+                </a>
+                </div>
+                <div class="menu">
+                    <a href="{% url 'new' %}">
+                    Create New Page
+                </a></div>
+                {% block nav %}
+                {% endblock %}
+            </div>
+                 
+            
+            <div class="main">
+                
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,2 @@
+#Cajon
+A cajón (Spanish: [kaˈxon]; "box", "crate" or "drawer") is a box-shaped percussion instrument originally from Peru, played by slapping the front or rear faces (generally thin plywood) with the hands, fingers, or sometimes implements such as brushes, mallets, or sticks. Cajones are primarily played in Afro-Peruvian music (specifically música criolla), but has made its way into flamenco as well. The term cajón is also applied to other box drums used in Latin American music, such as the Cuban cajón de rumba and the Mexican cajón de tapeo.

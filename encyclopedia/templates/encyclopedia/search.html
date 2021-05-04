@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    {% if entries %}
+    <h1>All pages contain your keyword "<span style="font-style: italic">{{keyword}}</span>"</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <!--each entry has a link that leads to page function and redirect to that page-->
+            <li><a href="{% url 'page' entry %}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h1>No pages contain your keyword "{{keyword}}"</h1>
+    {% endif %}
+
+{% endblock %}

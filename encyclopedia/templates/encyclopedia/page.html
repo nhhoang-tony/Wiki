@@ -1,0 +1,17 @@
+
+<!--extend layout page--> 
+{% extends "encyclopedia/layout.html" %}
+
+<!--title-->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+<!--body-->
+{% block body %}
+    {{ content|safe }} 
+    <!--Allow user to click to link to edit this page-->
+    {% if not message %}
+    <div class="edit"><a href="{% url 'edit' title %}">Edit page</a></div>
+    {% endif %}
+{% endblock %}
