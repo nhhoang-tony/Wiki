@@ -1,1 +1,1 @@
-# cs50w_wiki
+# A wikipedia website where pages are contributed by users
