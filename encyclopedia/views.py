@@ -28,16 +28,16 @@ def generate_page(request, title):
     # if page doesn't exist
     if (page == None):
         return render(request, "encyclopedia/page.html", {
-            "title": title, # return page title
-            "content": "Apology, page does not exist", # return apology message
+            "title": title,  # return page title
+            "content": "Apology, page does not exist",  # return apology message
             "message": "none"
         })
 
     # if page exist, render page to user
     else:
         return render(request, "encyclopedia/page.html", {
-            "title": title, # return page title
-            "content": markdown2.markdown(page) # return wiki content
+            "title": title,  # return page title
+            "content": markdown2.markdown(page)  # return wiki content
         })
 
 # search request when user type in post title
@@ -49,8 +49,8 @@ def search_page(request):
 
         if ("*" in title or "?" in title or "\"" in title or
             ":" in title or "/" in title or "<" in title or
-            ">" in title or "\\" in title or "|" in title):
-            return render(request, "encyclopedia/search.html", {   
+                ">" in title or "\\" in title or "|" in title):
+            return render(request, "encyclopedia/search.html", {
                 "keyword": title
             })
 
@@ -66,11 +66,11 @@ def search_page(request):
 
             # get only pages that contain user's query
             for all_entry in all_entries:
-                if (title.upper() in all_entry.upper()): # allow for case insensitive search
+                if (title.upper() in all_entry.upper()):  # allow for case insensitive search
                     entries.append(all_entry)
-        
+
             return render(request, "encyclopedia/search.html", {
-                "entries": entries, # return apology message
+                "entries": entries,  # return apology message
                 "keyword": title
             })
 
@@ -128,7 +128,7 @@ def edit_page(request, title):
             "title": title,
             "content": page
         })
-        
+
     # if users reach route via POST as by submitting form
     elif request.method == "POST":
         # get new page details from user
@@ -142,7 +142,7 @@ def edit_page(request, title):
                 "message": "Page content cannot be empty",
                 "title": title,
                 "content": page
-        })
+            })
 
         # update existing page
         util.save_entry(title, body)
@@ -154,5 +154,3 @@ def edit_page(request, title):
 def random_page(request):
     # render random page to users
     return HttpResponseRedirect(reverse('page', args=(random.choice(util.list_entries()), )))
-
-
