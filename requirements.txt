@@ -1,3 +1,5 @@
 django-rest-framework==0.1.0
 markdown2
 whitenoise
+psycopg2-binary
+python-dotenv
