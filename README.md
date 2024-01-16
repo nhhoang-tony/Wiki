@@ -4,7 +4,7 @@
 
 1. Clone the repo `git clone https://github.com/nhhoang-tony/Wiki.git`
 
-2. Ensure you have Python installed on your system
+2. Ensure you have Python installed on your system. If not, follow this guide to install `https://www.python.org/downloads/`
 
 3. Run `pip install -r requirements.txt` to install the project dependencies.
 
